@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Public API Directory — browse and search free public APIs. No sign-up, no API key required.">
+  <title>Public API Directory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Public API Directory</h1>
+      <p class="tagline">Browse and search free public APIs. No sign-up, no API key required to explore.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="controls" aria-label="Search and filter APIs">
+      <div class="control-row">
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search APIs by name or description…"
+          aria-label="Search APIs"
+          autocomplete="off"
+        >
+      </div>
+      <div class="control-row filters">
+        <label class="filter-field">
+          <span>Category</span>
+          <select id="category-select" aria-label="Filter by category">
+            <option value="all">All categories</option>
+          </select>
+        </label>
+
+        <label class="filter-field">
+          <span>Auth</span>
+          <select id="auth-select" aria-label="Filter by authentication">
+            <option value="all">All auth types</option>
+            <option value="none">None</option>
+            <option value="apiKey">apiKey</option>
+            <option value="OAuth">OAuth</option>
+          </select>
+        </label>
+
+        <label class="checkbox-field">
+          <input type="checkbox" id="https-only" checked>
+          <span>HTTPS only</span>
+        </label>
+      </div>
+    </section>
+
+    <p id="result-count" class="result-count" aria-live="polite"></p>
+    <p id="data-source" class="data-source" aria-live="polite"></p>
+
+    <div id="loading" class="loading" role="status">
+      <span class="spinner" aria-hidden="true"></span>
+      Loading APIs…
+    </div>
+
+    <div id="error" class="error" role="alert" hidden></div>
+
+    <section id="results" class="results" aria-label="API results"></section>
+
+    <p id="empty-state" class="empty-state" hidden>No APIs match your search. Try a different keyword or clear a filter.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Data: <a href="https://api.publicapis.org/" target="_blank" rel="noopener">api.publicapis.org</a> (free, no key required). If that service is unreachable, a built-in curated list is shown instead.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
